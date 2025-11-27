@@ -7,6 +7,11 @@
 # -------------
 
 # --- CHARGEMENT DES VARIABLES ---
+set -o allexport # Active l'export automatique des variables 
+source .env # Récupère les variables dans le fichier .env
+set +o allexport # Désactive l'export automatique pour éviter des conflits
+
+
 # On vérifie si le fichier .env existe
 if [ -f .env ]; then
     export $(cat .env | xargs)
